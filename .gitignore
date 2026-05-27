@@ -1,0 +1,101 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+gen/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Node.js / Vue.js Frontend
+abde-ms/abde-ms-front/node_modules/
+abde-ms/abde-ms-front/dist/
+abde-ms/abde-ms-front/npm-debug.log*
+abde-ms/abde-ms-front/yarn-debug.log*
+abde-ms/abde-ms-front/yarn-error.log*
+abde-ms/abde-ms-front/.npm
+abde-ms/abde-ms-front/.eslintcache
+
+# Logs
+logs/
+*.log
+*.log.*
+spring.log
+
+# OS specific
+**/.DS_Store
+**/Thumbs.db
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Package files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Javadoc
+javadoc/
+
+# Coverage
+coverage/
+*.gcov
+*.gcno
+*.gcda
+
+# Spring Boot
+application-local.properties
+application-local.yml
