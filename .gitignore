@@ -6,6 +6,8 @@ gen/
 
 # Maven
 target/
+*.jar
+*.war
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -36,13 +38,16 @@ ehthumbs.db
 Desktop.ini
 
 # Node.js / Vue.js Frontend
-abde-ms/abde-ms-front/node_modules/
-abde-ms/abde-ms-front/dist/
-abde-ms/abde-ms-front/npm-debug.log*
-abde-ms/abde-ms-front/yarn-debug.log*
-abde-ms/abde-ms-front/yarn-error.log*
-abde-ms/abde-ms-front/.npm
-abde-ms/abde-ms-front/.eslintcache
+abde-ms-front/node_modules/
+abde-ms-front/dist/
+abde-ms-front/npm-debug.log*
+abde-ms-front/yarn-debug.log*
+abde-ms-front/yarn-error.log*
+abde-ms-front/.npm
+abde-ms-front/.eslintcache
+abde-ms-front/.nuxt/          # ← 如果使用 Nuxt.js
+abde-ms-front/.next/           # ← 如果使用 Next.js
+abde-ms-front/build/
 
 # Logs
 logs/
@@ -76,6 +81,8 @@ spring.log
 
 # Javadoc
 javadoc/
+# compile
+*.class
 
 # Coverage
 coverage/

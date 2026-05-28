@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+spring:
+#依赖冲突：Gateway 项目中同时引入了 spring-boot-starter-web（基于 Servlet）和 Spring Cloud Gateway（基于 WebFlux/Reactive）
+#技术栈不兼容：Spring MVC（Servlet 栈）与 Spring Cloud Gateway（Reactive 栈）无法共存
+#需要二选一：要么移除 Web 依赖，要么显式指定使用 Reactive 模式
+  main:
+    web-application-type: reactive
+  application:
+    name: gateway-service
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+    gateway:
+      globalcors: # 全局的跨域处理
+        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
+        cors-configurations:
+          '[/**]':
+            allowed-origins: # 允许哪些网站的跨域请求
+              - "http://localhost:8081"
+            allowed-methods: # 允许的跨域ajax的请求方式
+              - "GET"
+              - "POST"
+              - "PUT"
+              - "DELETE"
+              - "OPTIONS"
+            allowed-headers: "*" # 允许在请求中携带的头信息
+            allow-credentials: true # 是否允许携带cookie
+            max-age: 360000 # 这次跨域检测的有效期
+      routes:
+        - id: account-service          # 路由唯一标识，随便写，不重复即可
+          uri: lb://account-service    # 目标服务地址：lb=负载均衡，后面是注册在Nacos里的服务名
+          predicates:                  # 断言（判断条件）
+            - Path=/accounts/**        # 当访问路径以 /orders/ 开头时，匹配这条路由
+
+        - id: brand-service
+          uri: lb://brand-service
+          predicates:
+            - Path=/brands/**
+
+        - id: dept-service
+          uri: lb://dept-service
+          predicates:
+            - Path=/depts/**
+
+        - id: emp-service
+          uri: lb://emp-service
+          predicates:
+            - Path=/emps/**
+
+        - id: login-service
+          uri: lb://login-service
+          predicates:
+            - Path=/login/**
+
+        - id: aliOssUpload-service
+          uri: lb://aliOssUpload-service
+          predicates:
+            - Path=/alioss/**
+
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/products/**
